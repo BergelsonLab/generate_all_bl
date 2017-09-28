@@ -1,11 +1,16 @@
 library(blabr)
 
-################################################
-# you should set the following paths yourself: #
-################################################
+##########################################################
+#  The default paths listed here are the ones pointing   #
+#  to input/output folders in Seedlings/Code/blab, which #
+#  is also where a copy of this script lives. If         #
+#  you need to run this script in some other location,   #
+#  or want to set different input/outputs, you need to   #
+#  set the following paths yourself.                     #
+##########################################################
 
 # folder with all the individual basiclevel csv's
-all_bl_dir <- "../all_bl/09-26-17"
+all_bl_dir <- "../all_bl/latest"
 
 # folder to output the by-month csv's to
 per_month_output_dir <- "../basiclevel_bymonth"
