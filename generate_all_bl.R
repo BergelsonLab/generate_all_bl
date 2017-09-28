@@ -10,7 +10,7 @@ library(blabr)
 ##########################################################
 
 # folder with all the individual basiclevel csv's
-all_bl_dir <- "../all_bl/latest"
+all_bl_dir <- "../all_bl/09-26-17"
 
 # folder to output the by-month csv's to
 per_month_output_dir <- "../basiclevel_bymonth"
