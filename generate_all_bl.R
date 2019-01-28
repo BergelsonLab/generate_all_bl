@@ -10,20 +10,20 @@ library(blabr)
 ##########################################################
 
 # folder with all the individual basiclevel csv's
-all_bl_dir <- "../all_bl/09-26-17"
+all_bl_dir <- "/Volumes/pn-opus/Seedlings/Code/blab/all_bl/01-28-19"
 
 # folder to output the by-month csv's to
-per_month_output_dir <- "../basiclevel_bymonth"
+per_month_output_dir <- "/Volumes/pn-opus/Seedlings/Code/blab/output/basiclevel_bymonth"
 
 # all_audio.csv output
-all_audio_out <- "../output/all_audio.csv"
+all_audio_out <- "/Volumes/pn-opus/Seedlings/Code/blab/output/all_audio.csv"
 
 # all_video.csv output
-all_video_out <- "../output/all_video.csv"
+all_video_out <- "/Volumes/pn-opus/Seedlings/Code/blab/output/all_video.csv"
 
 # all_basiclevel output name without extension (it will add the .csv and .feather)
-all_bl_out <- "../output/all_basiclevel"
-
+#all_bl_out <- "../output/all_basiclevel_with_na"
+all_bl_out <- "/Volumes/pn-opus/Seedlings/Code/blab/output/all_basiclevel"
 
 
 ############################
@@ -41,5 +41,7 @@ videomonths <- concat_month_bl(all_bl_dir, per_month_output_dir, "video")
 videostats <- concat_all_bl(videomonths, all_video_out)
 
 # all basiclevel
+#all_bl <- join_full_audio_video(audiostats, videostats, all_bl_out, keep_na=TRUE)
 all_bl <- join_full_audio_video(audiostats, videostats, all_bl_out)
-
+# if there were errors, run this to print report
+write.csv(all_bl, "problems.csv")
