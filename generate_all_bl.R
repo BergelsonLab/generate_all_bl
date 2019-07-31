@@ -11,7 +11,7 @@ library(tidyverse)
 #  set the following paths yourself.                     #
 ##########################################################
 
-date_collect <- '05-14-19'
+date_collect <- '07-31-19'
 # folder with all the individual basiclevel csv's
 all_bl_dir <- paste("/Volumes/pn-opus/Seedlings/Code/blab/all_bl/", date_collect, sep='')
 #all_bl_dir <-"Z:/Seedlings/Code/blab/all_bl/01-28-19" #for Charlotte's windows computron
@@ -57,13 +57,17 @@ write.csv(all_bl, "problems.csv")
 # write_feather(all_bl_NA, "Z:/Seedlings/Code/blab/all_basiclevel/all_basiclevel_NA.feather")
 
 # read in abl
-abl <- read.csv(paste(all_bl_out, ".csv", sep=''))
+abl <- read_csv(paste(all_bl_out, ".csv", sep=''))
 
  # retrieve annotid values that appear at least twice
-abl %>%
+duplicates <- abl %>%
   group_by(annotid) %>% 
   count() %>% 
   filter(n>1)
+
+
+merged_dup_abl <- duplicates %>%
+  merge(abl, how="left")
 
 # retrieve annotations for which there is no annotid
 abl %>% 
