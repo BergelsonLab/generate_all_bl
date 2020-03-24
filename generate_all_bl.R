@@ -40,12 +40,14 @@ all_bl_out <- paste("/Volumes/pn-opus/Seedlings/Code/blab/output_abl_",date_coll
 # audio by month
 audiomonths <- concat_month_bl(all_bl_dir, per_month_output_dir, "audio")
 # all audio
-audiostats <- concat_all_bl(audiomonths, all_audio_out)
+# filtering out pho lines manually here. The best solution would be for them to not end up here in the first place
+audiostats <- concat_all_bl(audiomonths, all_audio_out) %>% dplyr::filter(!grepl("%pho"), object)
 
 # video by month
 videomonths <- concat_month_bl(all_bl_dir, per_month_output_dir, "video")
 # all video
-videostats <- concat_all_bl(videomonths, all_video_out)
+# Again, manually filter out pho lines here.
+videostats <- concat_all_bl(videomonths, all_video_out) %>% dplyr::filter(!grepl("%pho"), object)
 
 
 
