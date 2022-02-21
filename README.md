@@ -1,4 +1,8 @@
-# generate_all_bl
+This here repository contains code that was used to create a fresh version of `all_basiclevel.csv` and related files. This functionality has now moved to the `blabpy` Python package.
+
+Please refer to [GitBook](https://bergelsonlab.gitbook.io/blab/data-pipeline/basic-levels/all-basic-level) for the up-to-date instructions.
+
+# ARCHIVED - DO NOT USE
 
 ## Generating a new set of all_basiclevel files
 - gather all basiclevel csv files in one folder using collect/gbl_paths.py. This script takes three arguments: the audio path file path_files/audiobl_directories.txt, the video path file path_files/videobl_directories.txt, and the output directory: Seedlings/Code/blab/all_bl/MM-DD-YY (with MM-DD-YY the date at which the gbl.py script is run)
